@@ -28,7 +28,7 @@ while True:
     |`-------'|   *        04-par ou impar             *
     | +     O |   *        05-pedra,papel ou tesoura   *
     |      O  |   *        06-cara ou coroa            *
-                *        0- sair                     *
+                  *        0- sair                     *
     | / /  ##,"   * * * * * * *  * * * * * * * * * * * * 
     `------"
 
