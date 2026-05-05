@@ -26,3 +26,4 @@ def jogar_adivinhação ():
         if contador == 5:
             print("acabaram suas chanches, jogue novamente e tente sua sorte!")
             break
+
