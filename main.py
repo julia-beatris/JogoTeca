@@ -4,6 +4,7 @@ from J03_jogo_tabuada.jogo_tabuada import jogar_jogo_tabuada
 from J04_par_ou_impar.par_ou_impar import jogar_par_ou_impar
 from J05_pedra_papel_tesoura.pedra_papel_tesoura import jogar_pedra_papel_tesoura
 from J06_cara_coroa.cara_coroa import jogar_cara_coroa
+from J07_adivinhação.adivinhação import jogar_adivinhação
 
 while True:
     print("""
@@ -28,6 +29,7 @@ while True:
     |`-------'|   *        04-par ou impar             *
     | +     O |   *        05-pedra,papel ou tesoura   *
     |      O  |   *        06-cara ou coroa            *
+                  *        07-adivinhação              *
                   *        0- sair                     *
     | / /  ##,"   * * * * * * *  * * * * * * * * * * * * 
     `------"
@@ -47,6 +49,8 @@ while True:
         jogar_pedra_papel_tesoura()
     elif escolha == 6:
         jogar_cara_coroa()
+    elif escolha == 7:
+        jogar_adivinhação()
     elif escolha == 0:
         print("Foi otimo jogar com você!")
         break

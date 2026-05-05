@@ -7,9 +7,6 @@ def jogar_adivinha_numero ():
         """)
         
     print("""
-        
-        
-        
     *******************************
     *   1- Noob (de 1 a 10)       *
     *   2- Medio(de 1 a 20)       *
