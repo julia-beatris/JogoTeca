@@ -42,7 +42,7 @@ def jogar_genius():
     input("precione qualquer tecla para começar.....")
     limpar_tela()
     lista_cores=["VERDE","AZUL","AMARELO","VERMELHO"]
-
+    contador = 0 
     while True:
         cor_aleatoria = random.choice(lista_cores)
         lista_sequencia.append(cor_aleatoria)
@@ -51,13 +51,14 @@ def jogar_genius():
 
 
         resposta = input ("Digite a sequencia de Cores Correta:").upper()
-        dicionario_apreviacoes= {"G" : "VERDE",
-                                "B" : "AZUL",
-                                "Y" : "AMARELO",
-                                "R" : "VERMELHO" }
+        dicionario_apreviacoes= {"G"  : "VERDE",
+                                 "B"  : "AZUL",
+                                 "Y"  : "AMARELO",
+                                 "R"  : "VERMELHO" }
+
         lista_resposta = []
         for letra in resposta:
-            cor = dicionario_apreviacoes.get [letra]
+            cor = dicionario_apreviacoes.get(letra)
             lista_resposta.append (cor)
         if lista_resposta != lista_sequencia:
             print("Você errou.") 
@@ -65,8 +66,12 @@ def jogar_genius():
             print(*lista_sequencia)
             break
         else:
+            contador =+ 1
             print("Você acertou!")
-            print ("Vamos para a proxima fase")
-            input ("Aperte ENTER quando estiver pronto....")
+            print (f"Vamos para a proxima fase: {contador}")
+            input ("Aperte ENTER quando estiver pronto...")
             limpar_tela()
+if __name__ == "__main__":
+    jogar_genius()
+    
 
