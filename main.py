@@ -5,6 +5,7 @@ from J04_par_ou_impar.par_ou_impar import jogar_par_ou_impar
 from J05_pedra_papel_tesoura.pedra_papel_tesoura import jogar_pedra_papel_tesoura
 from J06_cara_coroa.cara_coroa import jogar_cara_coroa
 from J07_adivinhação.adivinhação import jogar_adivinhação
+from J08_genius.genius import jogar_genius
 
 while True:
     print("""
@@ -29,7 +30,8 @@ while True:
     |`-------'|   *        04-par ou impar             *
     | +     O |   *        05-pedra,papel ou tesoura   *
     |      O  |   *        06-cara ou coroa            *
-                  *        07-adivinhação              *
+                  *        07-adivinhação   
+                  *        08-genius
                   *        0- sair                     *
     | / /  ##,"   * * * * * * *  * * * * * * * * * * * * 
     `------"
@@ -51,6 +53,8 @@ while True:
         jogar_cara_coroa()
     elif escolha == 7:
         jogar_adivinhação()
+    elif escolha == 8:
+        jogar_genius()
     elif escolha == 0:
         print("Foi otimo jogar com você!")
         break
