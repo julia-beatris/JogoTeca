@@ -2,11 +2,11 @@ import random
 import os
 
 def limpar():
-  os.system("cls")
+    os.system("cls")
 
 def escolher_palavra() -> str :
-    palavras = ["abacaxi", "biblioteca","coruja", "diamante", "elefante", "fogueira", "girassol", "helicóptero", 
-                "internet", "jangada"," koala", "lâmpada", "montanha", "nuvem", "oceano", "planeta", "quartzo", "relógio", "sorvete", "tartaruga"]
+    palavras = ["abacaxi", "biblioteca","coruja", "diamante", "elefante", "fogueira", "girassol",  
+                "internet", "jangada", "lâmpada", "montanha", "nuvem", "oceano", "planeta", "relógio", "sorvete", "tartaruga"]
 
     palavra_aleatoria = random.choice(palavras)
 
@@ -87,29 +87,62 @@ def gerar_tracos(palavra: str) ->list:
         tracos.append("_")
     return tracos
 
-lista_tracos = gerar_tracos("jangada")
-print(*lista_tracos)
 
 def perguntar_letra() -> str:
     resposta = input("Digite UMA letra:").upper()
     while len (resposta) != 1:
         resposta = input ("Eu disse penas UMA letra:").upper()
-        return resposta
-letra = perguntar_letra()
-print(letra)
+    return resposta
 
 def jogar_forca():
+
+    print(r"""
+                                                        _ .-') _     ('-.                                  _  .-')              ('-.     
+                                                        ( (  OO) )   ( OO ).-.                             ( \( -O )            ( OO ).-. 
+        ,--. .-'),-----.   ,----.     .-'),-----.        \     .'_   / . --. /         ,------. .-'),-----. ,------.   .-----.  / . --. / 
+    .-')| ,|( OO'  .-.  ' '  .-./-') ( OO'  .-.  '       ,`'--..._)  | \-.  \       ('-| _.---'( OO'  .-.  '|   /`. ' '  .--./  | \-.  \  
+    ( OO |(_|/   |  | |  | |  |_( O- )/   |  | |  |       |  |  \  '.-'-'  |  |      (OO|(_\    /   |  | |  ||  /  | | |  |('-..-'-'  |  | 
+    | `-'|  |\_) |  |\|  | |  | .--, \\_) |  |\|  |       |  |   ' | \| |_.'  |      /  |  '--. \_) |  |\|  ||  |_.' |/_) |OO  )\| |_.'  | 
+    ,--. |  |  \ |  | |  |(|  | '. (_/  \ |  | |  |       |  |   / :  |  .-.  |      \_)|  .--'   \ |  | |  ||  .  '.'||  |`-'|  |  .-.  | 
+    |  '-'  /   `'  '-'  ' |  '--'  |    `'  '-'  '       |  '--'  /  |  | |  |        \|  |_)     `'  '-'  '|  |\  \(_'  '--'\  |  | |  | 
+    `-----'      `-----'   `------'       `-----'        `-------'   `--' `--'         `--'         `-----' `--' '--'  `-----'  `--' `--' 
+            """)
+
+    input("precione ENTER  para começar.....")
     
-if __name__ == "__main__":
+    contador_erro = 0 
+    palavra = escolher_palavra()
+
+    lista_tracos = gerar_tracos(palavra)
+ 
+    while True:
+        limpar()
+
+        desenhar_forca(contador_erro)
+
+        print(*lista_tracos)
+
+        letra = perguntar_letra()
+
+        print(letra)
+
+        if letra not in palavra:
+            contador_erro += 1 
+
+        if contador_erro == 7:
+            print("Você perdeu hahahha")
+            print (f"a palavra era {palavra}")
+            break
+
+        if letra in palavra:
+            contador = 0
+            for letra_palavra in palavra:
+                if letra_palavra == letra:
+                    lista_tracos[contador] = letra
+                contador = contador + 1 
+
+
+
+
+if __name__ == "__main__" :
     jogar_forca()
-    pass
-
-print("""
-      _            __ _                       _                       ___                                  
-   _ | |   ___    / _` |   ___      o O O  __| |   __ _      o O O   | __|   ___      _ _    __     __ _   
-  | || |  / _ \   \__, |  / _ \    o      / _` |  / _` |    o        | _|   / _ \    | '_|  / _|   / _` |  
-  _\__/   \___/   |___/   \___/   TS__[O] \__,_|  \__,_|   TS__[O]  _|_|_   \___/   _|_|_   \__|_  \__,_|  
-_|"""""|_|"""""|_|"""""|_|"""""| {======|_|"""""|_|"""""| {======|_| """ |_|"""""|_|"""""|_|"""""|_|"""""| 
-"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'./o--000'"`-0-0-'"`-0-0-'./o--000'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-' 
-      """)
-
