@@ -8,7 +8,7 @@ def escolher_palavra() -> str :
     palavras = ["abacaxi", "biblioteca","coruja", "diamante", "elefante", "fogueira", "girassol",  
                 "internet", "jangada", "lâmpada", "montanha", "nuvem", "oceano", "planeta", "relógio", "sorvete", "tartaruga"]
 
-    palavra_aleatoria = random.choice(palavras)
+    palavra_aleatoria = random.choice(palavras).upper()
 
     #retorna a palavra para quem chamou a função
     return palavra_aleatoria
@@ -122,12 +122,17 @@ def jogar_forca():
 
         print(*lista_tracos)
 
+        if "_" not in lista_tracos:
+            print("parabens você ganhou!!!!!!")
+            break
+
         letra = perguntar_letra()
 
         print(letra)
 
         if letra not in palavra:
             contador_erro += 1 
+        tentativas.appe(letra) 
 
         if contador_erro == 7:
             print("Você perdeu hahahha")
@@ -140,8 +145,6 @@ def jogar_forca():
                 if letra_palavra == letra:
                     lista_tracos[contador] = letra
                 contador = contador + 1 
-
-
 
 
 if __name__ == "__main__" :
